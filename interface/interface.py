@@ -53,7 +53,7 @@ def render_results(
         st.metric("Max Frame Rate", f"{exposure_info['max_frame_rate']} Hz")
 
 
-def render_warning(exposure_info: dict) -> None:
+def render_warning(exposure_time: float, exposure_info: dict) -> None:
     if not exposure_info["is_exposure_valid"]:
         st.warning(
             f"Exposure time too high for selected frame rate.\n"
