@@ -43,7 +43,7 @@ def render_results(
 
     with col1:
         st.subheader("Calibration Result")
-        st.dataframe(calibration_table, use_container_width=True)
+        st.dataframe(calibration_table, use_container_width=True, hide_index=True)
 
     with col2:
         st.subheader("Scan Info")
