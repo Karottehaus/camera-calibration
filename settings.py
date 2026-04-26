@@ -11,3 +11,6 @@ CAMERA_POSITION = DATA_DIR / "camera_position.csv"
 SPATIAL_PIXEL = 1312
 # time required [ms] for the scanner to transfer the captured frame to the PC
 FTT = 3.4
+
+ARROW_DISTANCE = 24.1
+MAX_SCAN_LENGTH = 1500
