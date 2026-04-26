@@ -40,7 +40,7 @@ def main():
     )
 
     render_results(calibration_table, scan_metrics, exposure_metrics)
-    render_warning(inputs["exposure_time"], exposure_metrics)
+    render_warning(exposure_metrics)
 
     with st.expander("Calibration Source Data"):
         st.dataframe(df, use_container_width=True)
