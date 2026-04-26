@@ -35,28 +35,28 @@ def render_sidebar_inputs() -> dict:
 
 
 def render_results(
-        result_df: pd.DataFrame,
-        summary: dict,
-        exposure_info: dict
+        calibration_table: pd.DataFrame,
+        scan_metrics: dict,
+        exposure_metrics: dict
 ) -> None:
     col1, col2 = st.columns([2, 1])
 
     with col1:
         st.subheader("Calibration Result")
-        st.dataframe(result_df, use_container_width=True)
+        st.dataframe(calibration_table, use_container_width=True)
 
     with col2:
-        st.subheader("Summary")
-        st.metric("Scan Range %", f"{summary['scan_range_percent']}%")
-        st.metric("Estimated Scan Time", f"{summary['scan_time_min']} min")
-        st.metric("Max Allowed Exposure", f"{exposure_info['max_exposure']} ms")
-        st.metric("Max Frame Rate", f"{exposure_info['max_frame_rate']} Hz")
+        st.subheader("Scan Info")
+        st.metric("Scan Range Percent", f"{scan_metrics['scan_range_percent']} %")
+        st.metric("Estimated Scan Time", f"{scan_metrics['scan_time_min']} min")
+        st.metric("Max Allowed Exposure", f"{exposure_metrics['max_exposure']} ms")
+        st.metric("Max Frame Rate", f"{exposure_metrics['max_frame_rate']} Hz")
 
 
-def render_warning(exposure_time: float, exposure_info: dict) -> None:
-    if not exposure_info["is_exposure_valid"]:
+def render_warning(exposure_time: float, exposure_metrics: dict) -> None:
+    if not exposure_metrics["is_exposure_valid"]:
         st.warning(
             f"Exposure time too high for selected frame rate.\n"
             f"Maximum frame rate for this exposure time is "
-            f"{exposure_info['max_frame_rate']} Hz"
+            f"{exposure_metrics['max_frame_rate']} Hz"
         )
