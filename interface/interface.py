@@ -49,7 +49,7 @@ def render_results(
         st.subheader("Scan Info")
         st.metric("Scan Range Percent", f"{scan_metrics['scan_range_percent']} %")
         st.metric("Estimated Scan Time", f"{scan_metrics['scan_time_min']} min")
-        st.metric("Max Allowed Exposure", f"{exposure_metrics['max_exposure']} ms")
+        st.metric("Max Exposure", f"{exposure_metrics['max_exposure']} ms")
         st.metric("Max Frame Rate", f"{exposure_metrics['max_frame_rate']} Hz")
 
 
