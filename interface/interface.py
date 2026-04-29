@@ -39,18 +39,20 @@ def render_results(
         scan_metrics: dict,
         exposure_metrics: dict
 ) -> None:
-    col1, col2 = st.columns([2, 1])
+    st.subheader("Calibration Result")
+    st.dataframe(calibration_table, use_container_width=True, hide_index=True)
 
-    with col1:
-        st.subheader("Calibration Result")
-        st.dataframe(calibration_table, use_container_width=True, hide_index=True)
+    st.subheader("Scan Information")
+    other_metrics_col, scan_time_col = st.columns(2)
 
-    with col2:
-        st.subheader("Scan Info")
+    with other_metrics_col:
         st.metric("Scan Range Percent", f"{scan_metrics['scan_range_percent']} %")
-        st.metric("Estimated Scan Time", f"{scan_metrics['scan_time_min']} min")
         st.metric("Max Exposure", f"{exposure_metrics['max_exposure']} ms")
         st.metric("Max Frame Rate", f"{exposure_metrics['max_frame_rate']} Hz")
+
+    with scan_time_col:
+        for i, scan_time in enumerate(scan_metrics["scan_times"], start=1):
+            st.metric(f"Estimated Scan Time {i}", f"{scan_time} min")
 
 
 def render_warning(exposure_metrics: dict) -> None:

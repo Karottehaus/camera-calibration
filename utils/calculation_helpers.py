@@ -58,11 +58,12 @@ def build_calibration_table(
     indices = find_nearest_indices(usable_fov, target_fov)
 
     results = []
-    for i in indices:
+    for candidate_id, i in enumerate(indices, start=1):
         selected_fov = float(usable_fov[i])
         arrow_1, arrow_2 = predict_arrow_positions(model, selected_fov, table_position)
 
         results.append({
+            "Calibration Candidate": candidate_id,
             "Field of View": round(selected_fov, 2),
             "Arrow 1": arrow_1,
             "Arrow 2": arrow_2,
@@ -95,14 +96,16 @@ def get_scan_metrics(
         calibration_table: pd.DataFrame
 ) -> dict:
     """
-    Assumes the middle row is the best candidate.
+    Build scan metrics for all 3 calibration candidates.
     """
     scan_range_percent = round(100 * ((core_length + 110) / MAX_SCAN_LENGTH), 2)
 
-    selected_speed = calibration_table.iloc[1]["Speed"]
-    scan_time_min = round(((core_length + 200) / selected_speed) / 60, 2)
+    scan_times = []
+    for _, row in calibration_table.iterrows():
+        scan_time = round(((core_length + 200) / row["Speed"]) / 60, 2)
+        scan_times.append(scan_time)
 
     return {
         "scan_range_percent": scan_range_percent,
-        "scan_time_min": scan_time_min
+        "scan_times": scan_times
     }
