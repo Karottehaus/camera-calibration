@@ -39,7 +39,7 @@ def main():
         calibration_table=calibration_table
     )
 
-    render_results(calibration_table, scan_metrics, exposure_metrics)
+    render_results(calibration_table, scan_metrics, exposure_metrics, inputs)
     render_warning(exposure_metrics)
 
     with st.expander("Calibration Source Data"):
