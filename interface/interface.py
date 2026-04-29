@@ -55,7 +55,6 @@ def render_results(
         for i, scan_time in enumerate(scan_metrics["scan_times"], start=1):
             st.metric(f"Estimated Scan Time {i}", f"{scan_time} min")
 
-    st.subheader("Scan Description")
     candidate_id = calibration_table["Calibration Candidate"].tolist()
     selected_candidate = st.selectbox("Select Calibration Candidate", candidate_id)
     selected_row = calibration_table[
@@ -80,7 +79,7 @@ def render_results(
         f"scanning_range: {inputs['core_length']:.1f}"
     )
 
-    st.text("Generated Scan Description")
+    st.subheader("Scan Description")
     st.code(scan_description_text, language="python")
 
 
