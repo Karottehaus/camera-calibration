@@ -78,11 +78,8 @@ def render_results(
         f"scanning_range: {inputs['core_length']:.1f}"
     )
 
-    st.text_area(
-        "Generated Scan Description",
-        value=scan_description_text,
-        height=100
-    )
+    st.text("Generated Scan Description")
+    st.code(scan_description_text, language="python")
 
 
 def render_warning(exposure_metrics: dict) -> None:
