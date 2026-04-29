@@ -65,6 +65,7 @@ def render_results(
     selected_fov = float(selected_row["Field of View"])
     selected_speed = float(selected_row["Speed"])
     selected_arrow_1 = float(selected_row["Arrow 1"])
+    selected_arrow_2 = float(selected_row["Arrow 2"])
 
     scan_description_text = (
         f"spectral_binning: 2, "
@@ -75,14 +76,12 @@ def render_results(
         f"frame_rate: {inputs['frame_rate']:.1f}, "
         f"table_position: {inputs['table_position']:.2f}, "
         f"arrow_1: {selected_arrow_1:.2f}, "
+        f"arrow_2: {selected_arrow_2:.2f}, "
         f"scanning_range: {inputs['core_length']:.1f}"
     )
 
-    st.text_area(
-        "Generated Scan Description",
-        value=scan_description_text,
-        height=100
-    )
+    st.text("Generated Scan Description")
+    st.code(scan_description_text, language="python")
 
 
 def render_warning(exposure_metrics: dict) -> None:
