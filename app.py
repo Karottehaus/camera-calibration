@@ -1,8 +1,8 @@
 import streamlit as st
 from settings import CAMERA_POSITION, SPATIAL_PIXEL, FTT
-from utils.data_loader import load_data
-from utils.regression_model import train_regression_model
-from utils.calculation_helpers import build_calibration_table, get_exposure_metrics, get_scan_metrics
+from src.data_loader import load_data
+from src.regression_model import train_regression_model
+from src.calculation_helpers import build_calibration_table, get_exposure_metrics, get_scan_metrics
 from interface.interface import render_sidebar_inputs, render_results, render_warning
 
 st.set_page_config(
