@@ -3,7 +3,9 @@ from settings import CAMERA_POSITION, SPATIAL_PIXEL, FTT
 from src.data_loader import load_data
 from src.regression_model import train_regression_model
 from src.calculation_helpers import build_calibration_table, get_exposure_metrics, get_scan_metrics
-from interface.interface import render_sidebar_inputs, render_results, render_warning
+from interface.inputs import render_sidebar_inputs
+from interface.results import render_results
+from interface.warning import render_warning
 
 st.set_page_config(
     page_title="Camera Calibration Tool",
