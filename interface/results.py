@@ -1,3 +1,5 @@
+from email.policy import default
+
 import streamlit as st
 import pandas as pd
 
@@ -26,10 +28,10 @@ def render_results(
     st.subheader("Scan Description")
 
     candidate_id = calibration_table["Calibration Candidate"].tolist()
-    selected_candidate = st.selectbox("Select Calibration Candidate", candidate_id)
+    selected_candidate = st.selectbox("Select Calibration Candidate", candidate_id, index=1)
     selected_row = calibration_table[
         calibration_table["Calibration Candidate"] == selected_candidate
-        ].iloc[1]
+        ].iloc[0]
 
     selected_fov = float(selected_row["Field of View"])
     selected_speed = float(selected_row["Speed"])
