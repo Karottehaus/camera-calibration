@@ -29,7 +29,7 @@ def render_results(
     selected_candidate = st.selectbox("Select Calibration Candidate", candidate_id)
     selected_row = calibration_table[
         calibration_table["Calibration Candidate"] == selected_candidate
-        ].iloc[0]
+        ].iloc[1]
 
     selected_fov = float(selected_row["Field of View"])
     selected_speed = float(selected_row["Speed"])
