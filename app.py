@@ -41,11 +41,15 @@ def main():
         calibration_table=calibration_table
     )
 
-    render_results(calibration_table, scan_metrics, exposure_metrics, inputs)
-    render_warning(exposure_metrics)
+    tab1, tab2 = st.tabs(["Main", "Data"])
 
-    with st.expander("Calibration Source Data"):
-        st.dataframe(df, use_container_width=True)
+    with tab1:
+        render_results(calibration_table, scan_metrics, exposure_metrics, inputs)
+        render_warning(exposure_metrics)
+
+    with tab2:
+        st.subheader("Calibration Source Data")
+        st.dataframe(df, use_container_width=True, hide_index=True)
 
 
 if __name__ == "__main__":
