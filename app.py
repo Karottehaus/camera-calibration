@@ -16,7 +16,6 @@ st.set_page_config(
 
 def main():
     st.title("📷 Camera Calibration Tool")
-    st.caption("Refactored from original R script by Christoph Butz")
 
     df = load_data(CAMERA_POSITION)
     model = train_regression_model(df)
