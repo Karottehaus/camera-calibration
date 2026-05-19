@@ -51,6 +51,9 @@ def main():
         st.subheader("Calibration Source Data")
         st.dataframe(df, use_container_width=True, hide_index=True)
 
+    st.markdown("---")
+    st.markdown("© Geographisches Institut, Universität Bern")
+
 
 if __name__ == "__main__":
     main()
