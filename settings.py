@@ -14,3 +14,5 @@ FTT = 3.4
 
 ARROW_DISTANCE = 24.1
 MAX_SCAN_LENGTH = 1500
+
+PROTOCOL_URL = "https://dx.doi.org/10.17504/protocols.io.36wgqxze3lk5/v1"

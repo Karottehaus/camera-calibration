@@ -1,5 +1,5 @@
 import streamlit as st
-from settings import CAMERA_POSITION, SPATIAL_PIXEL, FTT
+from settings import CAMERA_POSITION, SPATIAL_PIXEL, FTT, PROTOCOL_URL
 from src.data_loader import load_data
 from src.regression_model import train_regression_model
 from src.calculation_helpers import build_calibration_table, get_exposure_metrics, get_scan_metrics
@@ -51,7 +51,7 @@ def main():
         st.dataframe(df, width="stretch", hide_index=True)
 
     st.markdown("---")
-    st.markdown("© Geographisches Institut, Universität Bern")
+    st.markdown(f"© Geographisches Institut, Universität Bern | [Protocol]({PROTOCOL_URL})")
 
 
 if __name__ == "__main__":
