@@ -48,7 +48,7 @@ def main():
 
     with tab2:
         st.subheader("Calibration Source Data")
-        st.dataframe(df, use_container_width=True, hide_index=True)
+        st.dataframe(df, width="stretch", hide_index=True)
 
     st.markdown("---")
     st.markdown("© Geographisches Institut, Universität Bern")

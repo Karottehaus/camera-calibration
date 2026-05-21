@@ -9,7 +9,7 @@ def render_results(
         inputs: dict
 ) -> None:
     st.subheader("Calibration Result")
-    st.dataframe(calibration_table, use_container_width=True, hide_index=True)
+    st.dataframe(calibration_table, width="stretch", hide_index=True)
 
     st.subheader("Scan Information")
     other_metrics_col, scan_time_col = st.columns(2)
