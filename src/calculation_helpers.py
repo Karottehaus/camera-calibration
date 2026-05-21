@@ -39,7 +39,8 @@ def predict_arrow_positions(
     """
     Predict Arrow 1 and derive Arrow 2.
     """
-    arrow_1 = round(model.predict([[fov, table_position]])[0], 2)
+    X = pd.DataFrame([[fov, table_position]], columns=["fov", "table_position"])
+    arrow_1 = round(model.predict(X)[0], 2)
     arrow_2 = round(arrow_1 + ARROW_DISTANCE, 2)
     return arrow_1, arrow_2
 
