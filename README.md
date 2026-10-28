@@ -90,7 +90,10 @@ camera-calibration/
 
 ## Protocol
 
-The app links to the associated [scanning protocol](https://dx.doi.org/10.17504/protocols.io.36wgqxze3lk5/v1).
+See the [scanning protocol](https://dx.doi.org/10.17504/protocols.io.36wgqxze3lk5/v1) for data acquisition.
+
+See the [processing protocol](https://dx.doi.org/10.17504/protocols.io.4r3l2xmxpv1y/v1) for data analysis with
+napari-sediment.
 
 ## Licence
 
